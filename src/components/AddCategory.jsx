@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from "prop-types";
 
 // Componente funcional que recibe una función como prop: onNewCategory
 export const AddCategory = ({ onNewCategory }) => {
@@ -30,7 +31,7 @@ export const AddCategory = ({ onNewCategory }) => {
 
     // Renderizamos el formulario con un input controlado
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} aria-label="form">
             <input 
                 type="text" // Campo de texto
                 placeholder="Buscar gifs" // Texto sugerido dentro del input
@@ -39,4 +40,9 @@ export const AddCategory = ({ onNewCategory }) => {
             />
         </form>
     )
+}
+
+
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func.isRequired
 }
